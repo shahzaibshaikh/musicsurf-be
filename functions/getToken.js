@@ -25,7 +25,9 @@ router.get('/get-token', async (req, res) => {
     const data = {
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
-      grant_type: 'client_credentials'
+      grant_type: 'client_credentials',
+      scope:
+        'user-read-playback-state,user-modify-playback-state,user-read-currently-playing,playlist-read-private,playlist-read-collaborative,playlist-modify-private,playlist-modify-public,user-read-playback-position,user-follow-read,user-top-read,user-library-modify'
     };
     const response = await axios.post(
       'https://accounts.spotify.com/api/token',
