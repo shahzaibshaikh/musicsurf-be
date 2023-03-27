@@ -3,6 +3,7 @@ const axios = require('axios');
 const serverless = require('serverless-http');
 const dotenv = require('dotenv');
 const qs = require('qs');
+const cors = require('cors');
 const app = express();
 const router = express.Router();
 
