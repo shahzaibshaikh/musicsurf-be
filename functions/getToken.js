@@ -8,6 +8,8 @@ const router = express.Router();
 
 dotenv.config();
 
+app.use(cors()); // enable CORS for all routes
+
 // Replace with your own credentials
 const PORT = process.env.PORT;
 const CLIENT_ID = process.env.CLIENT_ID;
