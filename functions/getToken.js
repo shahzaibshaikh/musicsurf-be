@@ -4,6 +4,7 @@ const serverless = require('serverless-http');
 const dotenv = require('dotenv');
 const qs = require('qs');
 const app = express();
+const router = express.Router();
 
 dotenv.config();
 
@@ -12,11 +13,11 @@ const PORT = process.env.PORT;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.send('MusicSurf Backend is up.');
 });
 
-app.get('/get-token', async (req, res) => {
+router.get('/get-token', async (req, res) => {
   try {
     const data = {
       client_id: CLIENT_ID,
@@ -37,5 +38,7 @@ app.get('/get-token', async (req, res) => {
     res.send(error);
   }
 });
+
+app.use('/', router);
 
 module.exports.handler = serverless(app);
